@@ -90,11 +90,11 @@ WSGI_APPLICATION = 'eshtarek.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'eshtarek_db',
+        'NAME': 'eshtarek',
         'USER':'eshtarek',
         'PASSWORD':'123',
         'HOST':'localhost',
-        'PORT':5432,
+        'PORT':'5432',
     }
 }
 
