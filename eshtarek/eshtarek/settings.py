@@ -40,6 +40,17 @@ INSTALLED_APPS = [
     'tenants.apps.TenantsConfig'
 ]
 
+AUTH_USER_MODEL = 'users.CustomUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'eshtarek.middleware.TenantMiddleware',
 ]
 
 ROOT_URLCONF = 'eshtarek.urls'
@@ -77,10 +89,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'eshtarek_db',
-        'USER':'postgres',
+        'USER':'eshtarek',
         'PASSWORD':'123',
         'HOST':'localhost',
-        'PORT':'5432',
+        'PORT':5432,
     }
 }
 
