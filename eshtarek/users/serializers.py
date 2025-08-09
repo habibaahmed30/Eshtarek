@@ -5,7 +5,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
     password=serializers.CharField(write_only=True)
 
     class Meta:
-        module =CustomUser('id','username','email','password','tenant','role')
+        model =CustomUser('id','username','email','password','tenant','role')
 
     def create(self,validated_date):
             password=validated_date.pop('password')
